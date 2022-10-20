@@ -2,8 +2,7 @@ name: Release to Docker Hub
 
 on:
   push:
-    tags:
-      - "*.*.*"
+    branches: [master]
   workflow_dispatch:
 
 jobs:
@@ -11,7 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: write token
-        run: echo ${{github.token }}
+        run: echo github.token is ${{github.token}}
+        
       - name: Checkout code
         uses: actions/checkout@v3
         with:
