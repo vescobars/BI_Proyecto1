@@ -1,0 +1,217 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Roboto&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
+    --prim: #5e35b1;
+    --prim-l: #9162e4;
+    --prim-d: #280680;
+    --sec: #00e5ff;
+    --sec-l: #6effff;
+    --sec-d: #00b2cc;
+
+    --col-red: #f44336;
+    --col-red-l: #ff7961;
+    --col-red-d: #ba000d;
+    --col-green: #4caf50;
+    --col-green-l: #80e27e;
+    --col-green-d: #338a3e;
+    --col-white: #ede7f6;
+    --col-white-l: #ffffff;
+    --col-white-d: #bbb5c3;
+    transition: all 0.2s linear;
+}
+body, html{
+    min-height: 100vh;
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER */
+header{
+    text-align: center;
+    background-color: var(--prim-d);
+    color: white;
+    min-height: 4rem;
+
+    position: relative;
+
+}
+
+header>div{
+    background-color: var(--prim);
+    display: flex;
+    align-items: center;
+    padding: 1rem 1rem;
+    justify-content: center;
+    box-shadow: #0004 0px 8px 10px;
+    /*border-radius: 0 0  1rem 1rem;*/
+}
+
+/*MAIN CONTENT */
+
+main {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    --vert-offset:1rem;
+    height: 100%;
+}
+main > section{
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* FORM SECTION*/
+.form{
+    background-color: var(--prim-d);
+    color: white;
+    padding: 2rem 1rem 1rem;
+    transition: all 0.2s linear;
+}
+.form> form{
+    display: flex;
+    flex-direction: column;
+}
+label[for="text"]{
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+.entry-form > * {
+    transition: all 0.2s linear;
+    position: relative;
+    background-color: var(--prim);
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+
+.entry-form > *:hover {
+    margin: 0.8rem 0;
+    box-shadow: rgba(40, 40, 40, 0.8) 2px 6px 10px;
+
+}
+
+#text{
+    flex-grow: 1;
+    color: white;
+    border: 2px solid transparent;
+
+}
+#text:focus{
+    outline: none !important;
+    border: 2px solid var(--sec-d);
+}
+
+div.pad{
+    height: var(--vert-offset);
+}
+
+.form button{
+    background-color: var(--sec);
+    cursor: pointer;
+}
+
+/* RESULT SECTION*/
+
+.result{
+    background-color: var(--col-white);
+    flex-grow: 1;
+}
+
+.result, .result *{
+    transition: all 1s linear;
+}
+
+.result>div{
+    position: relative;
+    top: calc(-1 * var(--vert-offset));
+    border-radius: 1rem 1rem 0 0;
+    background-color: var(--col-white);
+    padding: 1rem;
+}
+.result h2{
+    font-weight: 400;
+}
+.result>div>*{
+    background-color: var(--col-white);
+    border: none;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+}
+.result #result-text{
+    display: none;
+}
+.result.suicide #result-text, .result.nosuicide #result-text, .result.loading #result-text{
+    display: block;
+}
+
+#result-text{
+    text-align: center;
+    font-size: 2rem;
+    padding: 2rem 0;
+    margin: 1rem 0;
+}
+#result-subtext{
+    text-align: center;
+}
+/* NO SUICIDE*/
+.nosuicide.result, .nosuicide.result>div{
+    background-color: var(--col-green);
+
+}
+.nosuicide.result>div>*{
+    background-color: var(--col-green);
+
+}
+.nosuicide > div, .nosuicide{
+    background-color: var(--col-green);
+}
+/* SUICIDE*/
+.suicide.result, .suicide.result>div{
+    background-color: var(--col-red);
+
+}
+.suicide.result>div>*{
+    background-color: var(--col-red);
+
+}
+.suicide > div, .suicide{
+    background-color: var(--col-red);
+}
+
+@media screen and (min-width: 768px){
+    body{
+        display: flex;
+        align-content: center;
+        flex-direction: column;
+    }
+    main{
+        flex-direction: row;
+
+    }
+    main> section{
+        width: 50%;
+        max-height: inherit;
+    }
+    .form>form, .result>div{
+        max-width: 450px;
+        width: 100%;
+    }
+    .form{
+        align-items: end;
+    }
+    .result {
+        padding-right: 10vw;
+    }
+    .result>div{
+        position: static;
+    }
+}

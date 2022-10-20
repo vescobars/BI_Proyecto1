@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Revisión de potencial suicida</title>
+    <link type="text/css" rel="stylesheet" href="{{ url_for('static', path='/css/styles.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <div><h1>Predictor de la propensidad suicida de mensajes en redes sociales</h1></div>
+</header>
+<main>
+    <section class="form">
+        <form action="{{ BASE_URL }}" id="entry-form"  class="entry-form">
+            <h2><label for="text">Comentario</label></h2>
+            <textarea name="text" id="text" rows="8" required></textarea>
+            <button type="submit"><i class="bi bi-send"></i> Enviar</button>
+        </form>
+        <div class="pad"></div>
+    </section>
+    <section class="result" id="result-section">
+        <div>
+            <h2>Resultado</h2>
+            <p id="result-text"></p>
+            <p id="result-subtext">Por favor ingresar y enviar el mensaje que se desea analizar.</p>
+        </div>
+    </section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+<script type="application/javascript" src="{{ url_for('static', path='/js/index.js') }}"></script>
+</body>
+</html>
