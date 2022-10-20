@@ -28,6 +28,7 @@ jobs:
         id:   docker_build
         uses: docker/build-push-action@v3
         with:
+          context: .
           push: true
           tags: coldblade2000/biproyecto4:latest
 
