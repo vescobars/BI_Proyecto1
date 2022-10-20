@@ -58,7 +58,7 @@ class PredictionModel:
     fs: SelectFromModel
 
     def __init__(self):
-        self.model = pickle.load(open('models/model_svm.pkl', 'rb'))
+        self.model = pickle.load(open('models/model_lr.pkl', 'rb'))
         self.tfidf_vectorizer = pickle.load(open('models/tfidf_vectorizer.pkl', 'rb'))
         self.fs = pickle.load(open('models/feature_selection.pkl', 'rb'))
         nltk.download('punkt')
@@ -71,7 +71,6 @@ class PredictionModel:
         text = ' '.join(map(str, text))
         text = [text]
         text = self.tfidf_vectorizer.transform(text)
-        text = self.fs.transform(text)
         prediction = self.model.predict(text)[0]
         if prediction == 0:
             return {
